@@ -2,7 +2,7 @@
   <body>
   	<ul>
     {% for item in items %}
-        <li><a href="/show/{{item.key}}">{{ item.username }}</a></li>
+        <li>User {{ item.username }} , uid {{ item.uid }} uploaded on {{ item.date }}: <a href="/show/{{item.key}}">{{ item.filename }}</a></li>
 	{% endfor %}
 	</ul>
   </body>

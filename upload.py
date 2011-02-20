@@ -7,6 +7,7 @@ from google.appengine.ext.webapp import template
 class Content(db.Model):
     username = db.StringProperty()
     uid = db.StringProperty()
+    filename = db.StringProperty()
     contents = db.BlobProperty()
     date = db.DateTimeProperty(auto_now_add=True)
 
@@ -15,10 +16,10 @@ class UploadPage(webapp.RequestHandler):
         item = Content(
             username=self.request.get("username"),
             uid     =self.request.get("uid"),
+            filename=self.request.get("filename"),
             contents=db.Blob(self.request.get("file"))
         )
         item.put()
-        print self.request.get("file")
         self.response.out.write("OK")
 
 class ListPage(webapp.RequestHandler):
@@ -36,7 +37,6 @@ class ShowPage(webapp.RequestHandler):
 class TestPage(webapp.RequestHandler):
     def get(self):
         path = os.path.join(os.path.dirname(__file__), 'templates/index.html')
-        print "path=", path
         self.response.out.write(template.render(path, template_values))
 
 application = webapp.WSGIApplication([
