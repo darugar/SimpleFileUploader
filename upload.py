@@ -20,7 +20,7 @@ class UploadPage(webapp.RequestHandler):
             contents=db.Blob(self.request.get("file"))
         )
         item.put()
-        self.response.out.write("OK")
+        self.response.out.write('Ok. <a href="/list">List</a>')
 
 class ListPage(webapp.RequestHandler):
     def get(self):
@@ -31,7 +31,7 @@ class ListPage(webapp.RequestHandler):
 class ShowPage(webapp.RequestHandler):
     def get(self, key):
         item = Content.get(key)
-        self.response.headers['Content-Type'] = 'text/html'
+        self.response.headers['Content-Type'] = 'text/plain'
         self.response.out.write(item.contents)
 
 class TestPage(webapp.RequestHandler):
