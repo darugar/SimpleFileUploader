@@ -1,0 +1,13 @@
+Very simple App Engine based service to allow upload and subsequent viewing of files.
+
+The use case is uploading debug logs from places/devices where they're not easily
+accessible (eg. from a mobile phone) and viewing them later.
+
+http://your-app-name.appspot.com/static/test.html
+Test page
+
+http://your-app-name.appspot.com/list
+List of uploaded files
+
+http://your-app-name.appspot.com/upload
+POST to this url to upload files. See test.html for the necessary fields.
