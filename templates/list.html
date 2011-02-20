@@ -1,0 +1,9 @@
+<html>
+  <body>
+  	<ul>
+    {% for item in items %}
+        <li><a href="/show/{{item.key}}">{{ item.username }}</a></li>
+	{% endfor %}
+	</ul>
+  </body>
+</html>
