@@ -1,9 +1,14 @@
 <html>
   <body>
+  	<p id="header">
+  		Hello {{nickname}} [<a href="{{logout_url}}">Log out</a>]
+  	</p>
+	<p id="contents">
   	<ul>
     {% for item in items %}
         <li>User {{ item.username }} , uid {{ item.uid }} uploaded on {{ item.date }}: <a href="/show/{{item.key}}">{{ item.filename }}</a> [<a href="/delete/{{item.key}}">delete</a>]</li>
 	{% endfor %}
 	</ul>
+	</p>
   </body>
 </html>
