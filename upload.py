@@ -47,9 +47,9 @@ class DeletePage(webapp.RequestHandler):
 class ShowPage(webapp.RequestHandler):
     def get(self, key):
         item = Content.get(key)
-        #self.response.headers['Content-Type'] = 'text/plain'
+        self.response.headers['Content-Type'] = 'text/plain'
         #evaluate the extension, txt and log should be text, otherwise octet-stream
-        self.response.headers['Content-Type'] = 'application/octet-stream'
+        #self.response.headers['Content-Type'] = 'application/octet-stream'
         self.response.out.write(item.contents)
 
 class TestPage(webapp.RequestHandler):
